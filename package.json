@@ -1,0 +1,19 @@
+{
+  "name": "shopnest-ecom-mern",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "install:all": "npm install && npm ci --prefix backend && npm install --prefix frontend",
+    "dev": "concurrently -k -n backend,frontend \"npm --prefix backend run dev\" \"npm --prefix frontend start\"",
+    "build": "npm run render-build",
+    "render-build": "npm ci --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
+    "start": "npm --prefix backend start",
+    "seed": "npm --prefix backend run seed"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
